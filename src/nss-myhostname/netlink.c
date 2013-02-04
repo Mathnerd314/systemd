@@ -88,6 +88,9 @@ int ifconf_acquire_addresses(struct address **_list, unsigned *_n_list) {
                 if (r < 0)
                         return r;
 
+                if (family == AF_INET6 && scope == RT_SCOPE_LINK)
+                        continue;
+
                 switch (family) {
                 case AF_INET:
                         r = sd_rtnl_message_read_in_addr(m, IFA_LOCAL, &address.in);
