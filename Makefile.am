@@ -1813,7 +1813,9 @@ dist_tmpfiles_DATA += \
 endif
 
 SYSINIT_TARGET_WANTS += \
-	systemd-tmpfiles-setup-dev.service \
+	systemd-tmpfiles-setup-dev.service
+
+MULTI_USER_TARGET_WANTS += \
 	systemd-tmpfiles-setup.service
 
 dist_zshcompletion_DATA += \
